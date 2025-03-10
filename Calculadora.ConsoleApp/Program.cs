@@ -15,39 +15,42 @@ namespace Calculadora.ConsoleApp
 
                 Console.WriteLine("1 - Somar");
                 Console.WriteLine("2 - Subtrair");
+                Console.WriteLine("3 - Multiplicar");
+                Console.WriteLine("4 - Dividir");
                 Console.WriteLine("S - Sair");
 
                 Console.Write("Escolha uma opção -> ");
                 string opcao = Console.ReadLine().ToUpper();
                 if (opcao == "S")
-                {
                     break;
-                }
 
                 Console.Write("Digite o primeiro número -> ");
-                int primeiroNumero = Convert.ToInt32(Console.ReadLine());
+                decimal primeiroNumero = Convert.ToDecimal(Console.ReadLine());
 
                 Console.Write("Digite o segundo número -> ");
-                int segundoNumero = Convert.ToInt32(Console.ReadLine());
+                decimal segundoNumero = Convert.ToDecimal(Console.ReadLine());
 
-                int resultado = 0;
+                decimal resultado = 0;
+
                 if (opcao == "1")
-                {
                     resultado = primeiroNumero + segundoNumero;
-                }
-                else
-                {
+
+                else if (opcao == "2")
                     resultado = primeiroNumero - segundoNumero;
-                }
+
+                else if (opcao == "3")
+                    resultado = primeiroNumero * segundoNumero;
+
+                else if (opcao == "4")
+                    resultado = primeiroNumero / segundoNumero;
+
                 Console.WriteLine("--------------------------------");
-                Console.WriteLine("Resultado: " + resultado);
+                Console.WriteLine("Resultado: " + resultado.ToString("F2"));
                 Console.WriteLine("--------------------------------");
                 Console.Write("Deseja continuar? (S/N) -> ");
                 string opcaoContinuar = Console.ReadLine().ToUpper();
                 if (opcaoContinuar != "S")
-                {
                     break;
-                }
             }           
         }
     }
