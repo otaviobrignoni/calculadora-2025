@@ -17,12 +17,33 @@ namespace Calculadora.ConsoleApp
                 Console.WriteLine("2 - Subtrair");
                 Console.WriteLine("3 - Multiplicar");
                 Console.WriteLine("4 - Dividir");
+                Console.WriteLine("5 - Tabuada");
                 Console.WriteLine("S - Sair");
 
-                Console.Write("Escolha uma opção -> ");
+                Console.Write("\nEscolha uma opção -> ");
                 string opcao = Console.ReadLine().ToUpper();
                 if (opcao == "S")
                     break;
+                else if (opcao == "5")
+                {
+                    Console.WriteLine("--------------------------------");
+                    Console.WriteLine("Tabuada");
+                    Console.WriteLine("--------------------------------");
+
+                    Console.Write("Digite um número -> ");
+                    int numeroTabuada = Convert.ToInt32(Console.ReadLine());
+                    int resultadoTabuada = numeroTabuada;
+                    Console.WriteLine("--------------------------------");
+                    for (int i = 1; i <= 10; i++)
+                    {
+                        Console.WriteLine($"{numeroTabuada} x {i} = {resultadoTabuada}");
+                        resultadoTabuada += numeroTabuada;
+                    }
+                    Console.WriteLine("--------------------------------");
+                    Console.WriteLine("\nPresione enter para continuar...");
+                    Console.ReadLine();
+                    continue;
+                }
 
                 Console.Write("Digite o primeiro número -> ");
                 decimal primeiroNumero = Convert.ToDecimal(Console.ReadLine());
@@ -50,7 +71,7 @@ namespace Calculadora.ConsoleApp
                     }
                     resultado = primeiroNumero / segundoNumero;
                 }
-                    
+
                 Console.WriteLine("--------------------------------");
                 Console.WriteLine("Resultado: " + resultado.ToString("F2"));
                 Console.WriteLine("--------------------------------");
