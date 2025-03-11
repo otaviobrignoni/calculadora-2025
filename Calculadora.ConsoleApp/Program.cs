@@ -75,31 +75,32 @@ namespace Calculadora.ConsoleApp
 
                 decimal resultado = 0;
 
-                switch (opcao)
+                if (opcao == "1")
                 {
-                    case "1":
-                        resultado = primeiroNumero + segundoNumero;
-                        historicoOperacoes[contadorHistorico] = $"{primeiroNumero} + {segundoNumero} = {resultado}";
-                        break;
-                    case "2":
-                        resultado = primeiroNumero - segundoNumero;
-                        historicoOperacoes[contadorHistorico] = $"{primeiroNumero} - {segundoNumero} = {resultado}";
-                        break;
-                    case "3":
-                        resultado = primeiroNumero * segundoNumero;
-                        historicoOperacoes[contadorHistorico] = $"{primeiroNumero} × {segundoNumero} = {resultado}";
-                        break;
-                    case "4":
-                        while (segundoNumero == 0)
-                        {
-                            Console.Write("Não é possível dividir por 0\nDigite o segundo número novamente -> ");
-                            segundoNumero = Convert.ToDecimal(Console.ReadLine());
-                        }
-                        resultado = primeiroNumero / segundoNumero;
-                        historicoOperacoes[contadorHistorico] = $"{primeiroNumero} ÷ {segundoNumero} = {resultado}";
-                        break;
+                    resultado = primeiroNumero + segundoNumero;
+                    historicoOperacoes[contadorHistorico] = $"{primeiroNumero} + {segundoNumero} = {resultado}";
                 }
-
+                else if (opcao == "2")
+                {
+                    resultado = primeiroNumero - segundoNumero;
+                    historicoOperacoes[contadorHistorico] = $"{primeiroNumero} - {segundoNumero} = {resultado}";
+                    
+                }
+                else if (opcao == "3")
+                {
+                    resultado = primeiroNumero * segundoNumero;
+                    historicoOperacoes[contadorHistorico] = $"{primeiroNumero} × {segundoNumero} = {resultado}";
+                }
+                else if (opcao == "4")
+                {
+                    while (segundoNumero == 0)
+                    {
+                        Console.Write("Não é possível dividir por 0\nDigite o segundo número novamente -> ");
+                        segundoNumero = Convert.ToDecimal(Console.ReadLine());
+                    }
+                    resultado = primeiroNumero / segundoNumero;
+                    historicoOperacoes[contadorHistorico] = $"{primeiroNumero} ÷ {segundoNumero} = {resultado}";
+                }
                 contadorHistorico++;
 
                 Console.WriteLine("--------------------------------");
