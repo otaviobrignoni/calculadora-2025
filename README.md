@@ -1,6 +1,6 @@
 # Calculadora 2025
 
-![](https://i.imgur.com/vbgUL2p.gif)
+![](https://i.imgur.com/phjavuc.gif)
 
 ## Introdução
 
