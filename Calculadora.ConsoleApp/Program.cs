@@ -2,14 +2,14 @@
 
 internal class Program
 {
-    static string[] operationLog = new string[100];
-    static int logCounter = 0;
+    
     static void Main(string[] args)
     {
         while (true)
         {
             int userChoice = OptionMenu();
             string result;
+
             switch (userChoice)
             {
                 case 1:
@@ -33,7 +33,6 @@ internal class Program
                     break;
                 case 6:
                     ShowOperationLog();
-
                     break;
                 case 7:
                     Console.WriteLine("Até a próxima!");
@@ -72,88 +71,6 @@ internal class Program
         return userNumber;
     }
 
-    //static string CalculateAdition()
-    //{
-    //    Console.Clear();
-    //    Console.WriteLine("--------------------------------");
-    //    Console.WriteLine("             Adição             ");
-    //    Console.WriteLine("--------------------------------");
-    //    decimal firstNumber = GetUserNumber("o primeiro");
-    //    decimal secondNumber = GetUserNumber("o segundo");
-    //    decimal result = firstNumber + secondNumber;
-    //    string resultString = $"{firstNumber} + {secondNumber} = {result.ToString("F2")}";
-    //    operationLog[logCounter] = resultString;
-    //    logCounter++;
-    //    return resultString;
-    //}
-
-    //static string CalculateSubtraction()
-    //{
-    //    Console.Clear();
-    //    Console.WriteLine("--------------------------------");
-    //    Console.WriteLine("           Subtração            ");
-    //    Console.WriteLine("--------------------------------");
-    //    decimal firstNumber = GetUserNumber("o primeiro");
-    //    decimal secondNumber = GetUserNumber("o segundo");
-    //    decimal result = firstNumber - secondNumber;
-    //    string resultString = $"{firstNumber} - {secondNumber} = {result.ToString("F2")}";
-    //    operationLog[logCounter] = resultString;
-    //    logCounter++;
-    //    return resultString;
-    //}
-
-    //static string CalculateMultiplication()
-    //{
-    //    Console.Clear();
-    //    Console.WriteLine("--------------------------------");
-    //    Console.WriteLine("          Multiplicação         ");
-    //    Console.WriteLine("--------------------------------");
-    //    decimal firstNumber = GetUserNumber("o primeiro");
-    //    decimal secondNumber = GetUserNumber("o segundo");
-    //    decimal result = firstNumber * secondNumber;
-    //    string resultString = $"{firstNumber} × {secondNumber} = {result.ToString("F2")}";
-    //    operationLog[logCounter] = resultString;
-    //    logCounter++;
-    //    return resultString;
-    //}
-
-    //static string CalculateDivision()
-    //{
-    //    Console.Clear();
-    //    Console.WriteLine("--------------------------------");
-    //    Console.WriteLine("            Divisão             ");
-    //    Console.WriteLine("--------------------------------");
-    //    decimal firstNumber = GetUserNumber("o primeiro");
-    //    decimal secondNumber = GetUserNumber("o segundo");
-    //    while (secondNumber == 0)
-    //    {
-    //        Console.Write("Não é possível dividir por 0\nDigite o segundo número novamente -> ");
-    //        secondNumber = Convert.ToDecimal(Console.ReadLine());
-    //    }
-    //    decimal result = firstNumber / secondNumber;
-    //    string resultString = $"{firstNumber} ÷ {secondNumber} = {result.ToString("F2")}";
-    //    operationLog[logCounter] = resultString;
-    //    logCounter++;
-    //    return resultString;
-    //}
-
-    //static void CalculateTimesTable()
-    //{
-    //    Console.Clear();
-    //    Console.WriteLine("--------------------------------");
-    //    Console.WriteLine("             Tabuada            ");
-    //    Console.WriteLine("--------------------------------");
-
-    //    int userNumber = Convert.ToInt32(GetUserNumber("qualquer"));
-    //    int timesTable = userNumber;
-    //    Console.WriteLine("--------------------------------");
-    //    for (int i = 1; i <= 10; i++)
-    //    {
-    //        Console.WriteLine($"{userNumber} × {i} = {timesTable}");
-    //        timesTable += userNumber;
-    //    }
-    //}
-
     static void ShowOperationLog()
     {
         Console.Clear();
@@ -161,10 +78,10 @@ internal class Program
         Console.WriteLine("     Histórico de Operações     ");
         Console.WriteLine("--------------------------------");
 
-        for (int i = 0; i < operationLog.Length; i++)
+        for (int i = 0; i < Calculator.GetOperationLog().Length; i++)
         {
-            if (operationLog[i] != null)
-                Console.WriteLine($"{i+1}: {operationLog[i]}");
+            if (Calculator.GetOperationLog()[i] != null)
+                Console.WriteLine($"{i+1}: {Calculator.GetOperationLog()[i]}");
         }
         Console.Write("Pressione enter para continuar...");
         Console.ReadLine();
@@ -175,8 +92,6 @@ internal class Program
         Console.WriteLine("--------------------------------");
         Console.WriteLine($"Resultado: {result}");
         Console.WriteLine("--------------------------------");
-        operationLog[logCounter] = result;
-        logCounter++;
     }
 
     static char YesNoQuestion()
@@ -191,5 +106,4 @@ internal class Program
         return userInput[0];
     }
 
-    
 }

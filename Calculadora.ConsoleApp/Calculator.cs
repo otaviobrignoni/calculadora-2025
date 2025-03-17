@@ -2,6 +2,9 @@
 
 public static class Calculator
 {
+    static string[] operationLog = new string[100];
+    static int logCounter = 0;
+
     public static string Adition(decimal firstNumber, decimal secondNumber)
     {
         Console.Clear();
@@ -10,6 +13,8 @@ public static class Calculator
         Console.WriteLine("--------------------------------");
         decimal result = firstNumber + secondNumber;
         string resultString = $"{firstNumber} + {secondNumber} = {result.ToString("F2")}";
+        operationLog[logCounter] = resultString;
+        logCounter++;
         return resultString;
     }
 
@@ -21,6 +26,8 @@ public static class Calculator
         Console.WriteLine("--------------------------------");
         decimal result = firstNumber - secondNumber;
         string resultString = $"{firstNumber} - {secondNumber} = {result.ToString("F2")}";
+        operationLog[logCounter] = resultString;
+        logCounter++;
         return resultString;
     }
 
@@ -32,6 +39,8 @@ public static class Calculator
         Console.WriteLine("--------------------------------");
         decimal result = firstNumber * secondNumber;
         string resultString = $"{firstNumber} × {secondNumber} = {result.ToString("F2")}";
+        operationLog[logCounter] = resultString;
+        logCounter++;
         return resultString;
     }
 
@@ -48,6 +57,8 @@ public static class Calculator
         }
         decimal result = firstNumber / secondNumber;
         string resultString = $"{firstNumber} ÷ {secondNumber} = {result.ToString("F2")}";
+        operationLog[logCounter] = resultString;
+        logCounter++;
         return resultString;
     }
 
@@ -64,4 +75,10 @@ public static class Calculator
             timesTable += userNumber;
         }
     }
+
+    public static string[] GetOperationLog() 
+    {
+        return operationLog;
+    }
+
 }
