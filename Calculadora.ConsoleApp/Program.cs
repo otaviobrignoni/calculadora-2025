@@ -29,7 +29,8 @@ internal class Program
                     ShowResult(result);
                     break;
                 case 5:
-                    Calculator.TimesTable(Convert.ToInt32(GetUserNumber("um")));
+                    string[] timesTableResult = Calculator.TimesTable(GetUserNumber("um"));
+                    ShowTimesTable(timesTableResult);
                     break;
                 case 6:
                     ShowOperationLog();
@@ -69,6 +70,18 @@ internal class Program
         Console.Write($"Digite {type} número -> ");
         decimal userNumber = Convert.ToDecimal(Console.ReadLine());
         return userNumber;
+    }
+
+    static void ShowTimesTable(string[] timesTable)
+    {
+        Console.Clear();
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine("             Tabuada            ");
+        Console.WriteLine("--------------------------------");       
+        for (int i = 0; i <= 9; i++) 
+        {
+            Console.WriteLine(timesTable[i]);
+        }
     }
 
     static void ShowOperationLog()

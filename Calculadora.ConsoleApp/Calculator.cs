@@ -62,18 +62,19 @@ public static class Calculator
         return resultString;
     }
 
-    public static void TimesTable(int userNumber)
+    public static string[] TimesTable(decimal userNumber)
     {
-        Console.Clear();
-        Console.WriteLine("--------------------------------");
-        Console.WriteLine("             Tabuada            ");
-        Console.WriteLine("--------------------------------");
-        int timesTable = userNumber;
+
+        string[] timesTableLines = new string[10];
+        decimal timesTable = userNumber;
         for (int i = 1; i <= 10; i++)
         {
-            Console.WriteLine($"{userNumber} × {i} = {timesTable}");
+            timesTableLines[i-1] = $"{userNumber} × {i} = {timesTable}";
             timesTable += userNumber;
         }
+        operationLog[logCounter] = $"Você calculou a tabuada do {userNumber}";
+        logCounter++;
+        return timesTableLines;
     }
 
     public static string[] GetOperationLog() 
