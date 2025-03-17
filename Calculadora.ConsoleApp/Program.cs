@@ -158,13 +158,13 @@
         {
             Console.Clear();
             Console.WriteLine("--------------------------------");
-            Console.WriteLine("Histórico de Operações");
+            Console.WriteLine("     Histórico de Operações     ");
             Console.WriteLine("--------------------------------");
 
             for (int i = 0; i < operationLog.Length; i++)
             {
                 if (operationLog[i] != null)
-                    Console.WriteLine(operationLog[i]);
+                    Console.WriteLine($"{i+1}: {operationLog[i]}");
             }
             Console.Write("Pressione enter para continuar...");
             Console.ReadLine();
